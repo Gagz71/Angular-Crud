@@ -1,0 +1,115 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+
+	<!--Nom de la série -->
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			name="name"
+			id="name"
+			class="form-control"
+			formControlName="name"
+			[(ngModel)]="serie.name"
+		>
+		<label for="name">Nom </label>
+	</div>
+
+	<!--Date de première diffusion de la série -->
+	<div class="form-floating mb-3">
+		<input
+			type="date"
+			name="firstSeasonReleasedDate"
+			id="firstSeasonReleasedDate"
+			class="form-control"
+			formControlName="firstSeasonReleasedDate"
+			[(ngModel)]="serie.firstSeasonReleasedDate"
+		>
+		<label for="name">Date de première diffusion </label>
+	</div>
+
+	<!--Nombre de saisons-->
+	<div class="form-floating mb-3">
+		<input
+			type="number"
+			name="seasons_nb"
+			id="seasons_nb"
+			class="form-control"
+			formControlName="seasons_nb"
+			[(ngModel)]="serie.seasons_nb"
+		>
+		<label for="name">Nombre de saisons </label>
+	</div>
+
+	<!--Nombre d'épisodes -->
+	<div class="form-floating mb-3">
+		<input
+			type="number"
+			name="episodes_nb"
+			id="episodes_nb"
+			class="form-control"
+			formControlName="episodes_nb"
+			[(ngModel)]="serie.episodes_nb"
+		>
+		<label for="name">Nombre d'épisodes </label>
+	</div>
+
+	<!--Courte description -->
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			name="shortDescription"
+			id="shortDescription"
+			class="form-control"
+			formControlName="shortDescription"
+			[(ngModel)]="serie.shortDescription"
+		>
+		<label for="name">Courte description </label>
+	</div>
+
+	<!--Longue description -->
+	<div class="form-floating mb-3">
+		<textarea
+			name="longDescription"
+			id="longDescription"
+			class="form-control"
+			formControlName="longDescription"
+			[(ngModel)]="serie.longDescription">
+		</textarea>
+		<label for="name">Description détaillé </label>
+	</div>
+
+	<!--Critique-->
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			name="criticism"
+			id="criticism"
+			class="form-control"
+			formControlName="criticism"
+			[(ngModel)]="serie.criticism"
+		>
+		<label for="name">Critique </label>
+	</div>
+
+	<!--Url de l'image -->
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			name="urlPicture"
+			id="urlPicture"
+			class="form-control"
+			formControlName="urlPicture"
+			[(ngModel)]="serie.urlPicture"
+		>
+		<label for="name">Lien url de l'image </label>
+	</div>
+
+	<div class="row col-6 mx-auto">
+		<!--		[disabled]="form.invalid"-->
+		<button
+			[disabled]="form.invalid"
+			type="submit"
+			class="btn btn-dark btn-lg btn-block">{{submitLabel}}</button>
+		<a routerLink="/home" class="btn btn-outline-dark my-2">Retour</a>
+	</div>
+
+</form>

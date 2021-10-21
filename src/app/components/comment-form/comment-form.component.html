@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+	<div class="form-floating mb-3">
+		<input
+			type="text"
+			class="form-control"
+			id="author"
+			name="author"
+			formControlName="author"
+			[(ngModel)]="comment.author"
+		>
+		<label for="author">Auteur</label>
+	</div>
+	<div class="form-floating mb-3">
+		<textarea
+			name="content"
+			id="content"
+			class="form-control"
+			cols="30"
+			rows="10"
+			formControlName="content"
+			[(ngModel)]="comment.content"
+		></textarea>
+		<label for="content">Commentaire</label>
+	</div>
+
+	<div class="row col-6 mx-auto">
+		<!--		[disabled]="form.invalid"-->
+		<button
+			[disabled]="form.invalid"
+			type="submit"
+			class="btn btn-dark btn-lg btn-block">{{submitLabel}}</button>
+		<a [routerLink]="['/series/:id']" class="btn btn-outline-dark my-2">Retour</a>
+	</div>
+</form>

@@ -1,0 +1,39 @@
+
+<button
+	routerLink="/series/add"
+	class="btn btn-outline-info ">Nouvelle série</button>
+
+<div class="row  justify-content-center card-deck h-100">
+	<ng-container *ngIf="series.length > 0 " >
+
+		<div *ngFor="let serie of series"
+			class="card bg-dark text-white col-5 m-3">
+
+			<img  [src]="serie.urlPicture" class="card-img h-100" alt="Affiche {{serie.name}}">
+			<!--Div oVerlay-->
+			<div   class="card-img-overlay m-auto"  >
+
+				<div class="d-flex flex-column justify-content-center align-content-center">
+					<small>#{{serie.id}}</small>
+					<h5 [routerLink]="['/series', serie.id]"
+					    class="card-title display-3 ">{{serie.name}}</h5>
+
+					<p class="card-text lead">{{serie.shortDescription}}</p>
+					<p class="card-text">date de première diffusion: <b>{{serie.firstSeasonReleasedDate | date : "dd-MM-YYYY"}}</b></p>
+				</div>
+
+				<!--div btn-->
+				<div class="d-flex justify-content-between">
+					<button [routerLink]="['/series', serie.id, 'edit']" class="btn btn-outline-warning mx-1">Modifier 🖋 </button>
+					<button
+						(click)="onClickDeleteBtn(serie.id)"
+						class="btn btn-outline-danger mx-1">Supprimer 🗑</button>
+				</div>
+			</div>
+
+
+		</div>
+
+	</ng-container>
+</div>
+

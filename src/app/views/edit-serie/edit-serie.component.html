@@ -1,0 +1,12 @@
+<div class="row col-6 card shadow mx-auto my-5">
+
+	<h3 class="text-center m-3 display-5 ">Modification d'une série</h3>
+
+	<app-serie-form
+		*ngIf="serie"
+		[serieToEdit]="serie"
+		submitLabel="Modifier la série"
+		(formSubmitted)="onSubmitEditSerie($event)"
+	>
+	</app-serie-form>
+</div>
